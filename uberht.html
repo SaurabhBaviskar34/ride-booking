@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swyft — Move at the speed of now</title>
+  <meta name="description" content="Swyft is a modern ride-hailing platform. Request a ride in seconds, see your price upfront, and get moving.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ubersty.css">
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#home" class="logo" aria-label="Swyft home">
+        <span class="logo__mark" aria-hidden="true"></span>
+        Swyft
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a href="#services" class="nav-link">Ride</a>
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#drive" class="nav-link">Drive</a>
+        <a href="#testimonials" class="nav-link">Reviews</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="#drive" class="btn btn--ghost">Drive with us</a>
+        <a href="#hero-form" class="btn btn--primary">Get a ride</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow">Now live in 120+ cities</p>
+          <h1 class="hero__title">Go anywhere.<br>Get there <span class="text-accent">now.</span></h1>
+          <p class="hero__subtitle">Request a ride, hop in, and get moving. Upfront pricing, real-time tracking, and a driver on the way in minutes — day or night.</p>
+
+          <ul class="hero__stats" id="heroStats">
+            <li class="stat">
+              <span class="stat__number" data-target="120" data-suffix="+">0</span>
+              <span class="stat__label">Cities served</span>
+            </li>
+            <li class="stat">
+              <span class="stat__number" data-target="40" data-suffix="M+">0</span>
+              <span class="stat__label">Rides completed</span>
+            </li>
+            <li class="stat">
+              <span class="stat__number" data-target="4.9" data-suffix="★" data-decimal="1">0</span>
+              <span class="stat__label">Average rating</span>
+            </li>
+            <li class="stat">
+              <span class="stat__number" data-target="3" data-suffix=" min">0</span>
+              <span class="stat__label">Avg. pickup time</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="booking-card" id="hero-form">
+          <h2 class="booking-card__title">See your price</h2>
+          <form class="booking-form" id="bookingForm" novalidate>
+            <div class="field">
+              <label for="pickup">Pickup location</label>
+              <div class="field__input-wrap">
+                <span class="field__icon field__icon--pickup" aria-hidden="true"></span>
+                <input type="text" id="pickup" name="pickup" placeholder="Enter pickup address" autocomplete="off" required>
+              </div>
+              <span class="field__error" id="pickupError" role="alert"></span>
+            </div>
+
+            <div class="field">
+              <label for="destination">Destination</label>
+              <div class="field__input-wrap">
+                <span class="field__icon field__icon--destination" aria-hidden="true"></span>
+                <input type="text" id="destination" name="destination" placeholder="Enter destination" autocomplete="off" required>
+              </div>
+              <span class="field__error" id="destinationError" role="alert"></span>
+            </div>
+
+            <div class="field">
+              <label for="distance">Estimated distance (km)</label>
+              <div class="field__input-wrap">
+                <span class="field__icon field__icon--distance" aria-hidden="true"></span>
+                <input type="number" id="distance" name="distance" placeholder="e.g. 12" min="1" max="500" step="0.1" required>
+              </div>
+              <span class="field__error" id="distanceError" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block">See prices</button>
+          </form>
+
+          <div class="fare-result" id="fareResult" hidden>
+            <p class="fare-result__title">Estimated fares</p>
+            <ul class="fare-result__list" id="fareList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Ride options</p>
+          <h2>A ride for every moment</h2>
+          <p class="section-head__desc">From a quick solo trip to a night out with friends — pick the ride that fits.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-card__art" aria-hidden="true">
+              <svg viewBox="0 0 120 60" class="car-icon"><path d="M10 40 L18 22 Q22 16 30 16 L78 16 Q86 16 90 22 L98 40 L98 48 L10 48 Z" fill="currentColor" opacity="0.16"/><path d="M14 40 L20 24 Q23 19 29 19 L76 19 Q82 19 85 24 L92 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="10" y="40" width="88" height="9" rx="4" fill="currentColor"/><circle cx="28" cy="49" r="7" fill="#0c0c0c" stroke="currentColor" stroke-width="2.5"/><circle cx="82" cy="49" r="7" fill="#0c0c0c" stroke="currentColor" stroke-width="2.5"/></svg>
+            </div>
+            <h3>UberX</h3>
+            <p class="service-card__desc">Affordable, everyday rides for up to 4 people. The smart way to get around town.</p>
+            <div class="service-card__meta">
+              <span>4 seats</span>
+              <span>₹12/km base</span>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__art" aria-hidden="true">
+              <svg viewBox="0 0 120 60" class="car-icon"><path d="M6 40 L15 21 Q19 15 28 15 L80 15 Q89 15 93 21 L102 40 L102 48 L6 48 Z" fill="currentColor" opacity="0.16"/><path d="M11 40 L17 23 Q20 18 27 18 L78 18 Q85 18 88 23 L95 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="40" width="96" height="9" rx="4" fill="currentColor"/><circle cx="26" cy="49" r="7" fill="#0c0c0c" stroke="currentColor" stroke-width="2.5"/><circle cx="84" cy="49" r="7" fill="#0c0c0c" stroke="currentColor" stroke-width="2.5"/></svg>
+            </div>
+            <h3>Comfort</h3>
+            <p class="service-card__desc">Newer cars with extra legroom and top-rated drivers for a smoother ride.</p>
+            <div class="service-card__meta">
+              <span>4 seats</span>
+              <span>₹16/km base</span>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__art" aria-hidden="true">
+              <svg viewBox="0 0 120 60" class="car-icon"><path d="M4 40 L14 20 Q18 14 28 14 L82 14 Q92 14 96 20 L106 40 L106 48 L4 48 Z" fill="currentColor" opacity="0.16"/><path d="M9 40 L16 22 Q19 17 26 17 L80 17 Q87 17 90 22 L97 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="40" width="102" height="9" rx="4" fill="currentColor"/><circle cx="24" cy="49" r="7" fill="#0c0c0c" stroke="currentColor" stroke-width="2.5"/><circle cx="86" cy="49" r="7" fill="#0c0c0c" stroke="currentColor" stroke-width="2.5"/></svg>
+            </div>
+            <h3>Black</h3>
+            <p class="service-card__desc">Premium sedans, professional drivers, and a refined ride for business or special occasions.</p>
+            <div class="service-card__meta">
+              <span>4 seats</span>
+              <span>₹28/km base</span>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__art" aria-hidden="true">
+              <svg viewBox="0 0 120 60" class="car-icon"><path d="M4 42 L12 19 Q16 12 27 12 L93 12 Q104 12 108 19 L116 42 L116 49 L4 49 Z" fill="currentColor" opacity="0.16"/><path d="M8 42 L14 21 Q17 15 25 15 L95 15 Q103 15 106 21 L112 42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="42" width="112" height="9" rx="4" fill="currentColor"/><circle cx="26" cy="51" r="7" fill="#0c0c0c" stroke="currentColor" stroke-width="2.5"/><circle cx="94" cy="51" r="7" fill="#0c0c0c" stroke="currentColor" stroke-width="2.5"/></svg>
+            </div>
+            <h3>XL</h3>
+            <p class="service-card__desc">Extra room for up to 6 riders. Perfect for groups, families, and airport runs.</p>
+            <div class="service-card__meta">
+              <span>6 seats</span>
+              <span>₹20/km base</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Getting started</p>
+          <h2>Three steps. That's it.</h2>
+          <p class="section-head__desc">No surprises, no waiting around — just open the app and go.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M24 4 C15 4 8 11 8 20c0 13 16 24 16 24s16-11 16-24c0-9-7-16-16-16z" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="20" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+            </div>
+            <span class="step__number">01</span>
+            <h3>Set your destination</h3>
+            <p>Enter where you're headed and choose the ride that fits your trip and budget.</p>
+          </div>
+
+          <div class="step">
+            <div class="step__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 13v11l8 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <span class="step__number">02</span>
+            <h3>Get matched instantly</h3>
+            <p>We connect you with a nearby driver and show their live location on the map.</p>
+          </div>
+
+          <div class="step">
+            <div class="step__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="9" y="20" width="30" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M12 20l3-8a4 4 0 0 1 4-3h10a4 4 0 0 1 4 3l3 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle cx="15" cy="34" r="3" fill="currentColor"/><circle cx="33" cy="34" r="3" fill="currentColor"/></svg>
+            </div>
+            <span class="step__number">03</span>
+            <h3>Ride and relax</h3>
+            <p>Track your trip in real time, pay automatically, and rate your driver when you arrive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRICING ESTIMATOR ===================== -->
+    <section class="pricing" id="pricing">
+      <div class="container pricing__inner">
+        <div class="pricing__copy">
+          <p class="eyebrow">Pricing estimator</p>
+          <h2>Know your fare before you ride</h2>
+          <p class="section-head__desc">Drag the slider to estimate distance and instantly compare prices across every ride type. Final fares may vary with traffic and demand.</p>
+
+          <div class="slider-block">
+            <div class="slider-block__head">
+              <label for="distanceSlider">Trip distance</label>
+              <span class="slider-block__value"><span id="sliderValue">10</span> km</span>
+            </div>
+            <input type="range" id="distanceSlider" min="1" max="100" value="10" step="1" aria-label="Trip distance in kilometers">
+          </div>
+        </div>
+
+        <div class="pricing__cards" id="pricingCards">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DRIVER SIGNUP ===================== -->
+    <section class="drive" id="drive">
+      <div class="container drive__inner">
+        <div class="drive__copy">
+          <p class="eyebrow eyebrow--light">Drive with Swyft</p>
+          <h2>Turn your car into your income</h2>
+          <p>Set your own hours, keep more of every fare, and get paid out weekly — or daily, whenever you need it. All you need is a car, a license, and a phone.</p>
+          <ul class="drive__list">
+            <li>Average ₹650/hour during peak times</li>
+            <li>Weekly direct deposit, no waiting</li>
+            <li>24/7 in-app support for drivers</li>
+            <li>Free in-app navigation and trip tracking</li>
+          </ul>
+          <a href="#" class="btn btn--accent">Start driving today</a>
+        </div>
+        <div class="drive__card">
+          <div class="drive__card-stat">
+            <span>₹650</span>
+            <small>avg. earnings / hour (peak)</small>
+          </div>
+          <div class="drive__card-stat">
+            <span>2.1M+</span>
+            <small>active drivers worldwide</small>
+          </div>
+          <div class="drive__card-stat">
+            <span>24/7</span>
+            <small>driver support</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== APP DOWNLOAD ===================== -->
+    <section class="app-promo">
+      <div class="container app-promo__inner">
+        <div class="app-promo__copy">
+          <p class="eyebrow">Get the app</p>
+          <h2>Your ride is one tap away</h2>
+          <p>Download Swyft and book your first ride in under a minute. Available on iOS and Android.</p>
+          <div class="app-promo__buttons">
+            <a href="#" class="store-btn" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.299-.03-.013-.11-.04-.45-.04-.79 0-1.14.572-2.27 1.206-2.99.804-.94 2.184-1.65 3.33-1.69.014.13.014.27.014.43zm3.992 17.13c-.65 1.45-.97 2.1-1.81 3.38-1.18 1.78-2.84 3.99-4.9 4.01-1.83.02-2.3-1.2-4.78-1.19-2.48.01-3 1.21-4.83 1.19-2.06-.02-3.63-2.02-4.81-3.8C-2.05 18.27-1.07 12.4 1.6 9.34c1.34-1.55 3.05-2.46 4.65-2.46 1.66 0 2.7 1.03 4.07 1.03 1.33 0 2.13-1.03 4.07-1.03 1.42 0 2.93.74 4 2.02-3.52 1.93-2.95 6.95.96 8.63-.02.01-.04.01-.05.02z"/></svg>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+            <a href="#" class="store-btn" aria-label="Get it on Google Play">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3.6 2.3c-.4.3-.6.8-.6 1.4v16.6c0 .6.2 1.1.6 1.4l9.9-9.7L3.6 2.3zm12.4 9.7l2.8-2.8-12-6.8c-.2-.1-.4-.2-.6-.2L16 12zM4.1 21.6c.2 0 .4-.1.6-.2l12-6.8-2.8-2.8L4.1 21.6zm15.7-10.7l-2.6-1.5-3 3 3 3 2.6-1.5c.8-.5.8-1.5 0-2z"/></svg>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+          </div>
+        </div>
+        <div class="app-promo__visual" aria-hidden="true">
+          <div class="phone-mock">
+            <div class="phone-mock__notch"></div>
+            <div class="phone-mock__screen">
+              <div class="phone-mock__map"></div>
+              <div class="phone-mock__pin"></div>
+              <div class="phone-mock__card">
+                <div class="phone-mock__row"></div>
+                <div class="phone-mock__row phone-mock__row--short"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Riders love Swyft</p>
+          <h2>Don't just take our word for it</h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"Booked a ride to the airport at 5am and a driver was outside in three minutes. Smoothest trip I've had in years."</p>
+            <div class="testimonial-card__author">
+              <span class="avatar avatar--1" aria-hidden="true"></span>
+              <div>
+                <strong>Ananya R.</strong>
+                <small>Mumbai</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"The upfront pricing is what sold me. No more guessing what the fare will be when I land somewhere new."</p>
+            <div class="testimonial-card__author">
+              <span class="avatar avatar--2" aria-hidden="true"></span>
+              <div>
+                <strong>Marcus T.</strong>
+                <small>Austin</small>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>"I drive for Swyft on weekends and the payouts are fast, the app is reliable, and support actually answers."</p>
+            <div class="testimonial-card__author">
+              <span class="avatar avatar--3" aria-hidden="true"></span>
+              <div>
+                <strong>Priya N.</strong>
+                <small>Bengaluru</small>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="faq" id="faq">
+      <div class="container faq__inner">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions, answered</h2>
+        </div>
+
+        <div class="accordion" id="accordion">
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>How is my fare calculated?</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>Your fare is based on a base fare, the distance and time of your trip, and current demand in your area. You always see an estimate before you confirm your ride.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>What payment methods are accepted?</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>We accept all major credit and debit cards, UPI, mobile wallets, and cash in select cities. Payment is added automatically when your trip ends.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Can I schedule a ride in advance?</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>Yes. You can schedule a pickup up to 30 days ahead from the booking form — just choose "Schedule" instead of "Now" when requesting your ride.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>Is there a cancellation fee?</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>Cancelling within two minutes of booking is free. After that, a small cancellation fee may apply if your driver is already on the way.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              <span>How do I become a driver?</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>Sign up online, upload your license and vehicle documents, and pass a background check. Most drivers are approved and on the road within a few days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#home" class="logo logo--footer">
+          <span class="logo__mark" aria-hidden="true"></span>
+          Swyft
+        </a>
+        <p>Moving people and cities forward, one ride at a time.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" aria-label="Swyft on X">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-7-6.2 7H1.4l8.1-9.3L1 2h7l4.9 6.5L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>
+          </a>
+          <a href="#" aria-label="Swyft on Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 2.2.27 3.05 1.12.85.85 1.07 1.88 1.12 3.05.06 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.27 2.2-1.12 3.05-.85.85-1.88 1.07-3.05 1.12-1.25.06-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-2.2-.27-3.05-1.12-.85-.85-1.07-1.88-1.12-3.05C2.92 14.6 2.9 14.2 2.9 11s0-3.6.07-4.85c.05-1.17.27-2.2 1.12-3.05.85-.85 1.88-1.07 3.05-1.12C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.51 0-4.75.07-.97.04-1.5.21-1.85.34-.46.18-.79.39-1.14.74-.35.35-.56.68-.74 1.14-.13.35-.3.88-.34 1.85C3.1 9.29 3.1 9.66 3.1 12.8s0 3.51.08 4.75c.04.97.21 1.5.34 1.85.18.46.39.79.74 1.14.35.35.68.56 1.14.74.35.13.88.3 1.85.34 1.24.07 1.61.07 4.75.07s3.51 0 4.75-.07c.97-.04 1.5-.21 1.85-.34.46-.18.79-.39 1.14-.74.35-.35.56-.68.74-1.14.13-.35.3-.88.34-1.85.07-1.24.07-1.61.07-4.75s0-3.51-.07-4.75c-.04-.97-.21-1.5-.34-1.85-.18-.46-.39-.79-.74-1.14-.35-.35-.68-.56-1.14-.74-.35-.13-.88-.3-1.85-.34C15.51 4 15.14 4 12 4z"/><circle cx="12" cy="12" r="3.2"/></svg>
+          </a>
+          <a href="#" aria-label="Swyft on LinkedIn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V21h-4V9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="#">Investors</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="#services">Ride</a></li>
+          <li><a href="#drive">Drive</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="#">Freight</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#faq">Help center</a></li>
+          <li><a href="#">Safety</a></li>
+          <li><a href="#">Cancellations</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Cookie settings</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year"></span> Swyft Technologies Inc. All rights reserved.</p>
+      <div class="footer__lang">
+        <span>English (US)</span>
+        <span>India</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="uberjava.js"></script>
+</body>
+</html>
